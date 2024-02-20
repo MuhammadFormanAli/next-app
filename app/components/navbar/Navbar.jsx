@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className='flex justify-between'>
                 <ul className='flex gap-6 text-black '>
                     <li><Link href="/stories">STORIES</Link></li>
-                    <li><Link href="/stories">FEATURES</Link></li>
+                    <li><Link href="/features">FEATURES</Link></li>
                     <li><Link href="/stories">PRICING</Link></li>
                 </ul>
             </div>
