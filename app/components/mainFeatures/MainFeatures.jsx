@@ -6,7 +6,7 @@ import embed from "@/public/assets/features/desktop/embed.svg";
 
 const MainFeatures = () => {
   return (
-    <div className=" p-3 md:p-10 lg:p-32 flex flex-col lg:flex-row text-center ">
+    <div className=" p-3 md:p-10 lg:p-32 flex flex-col lg:flex-row text-center bg-white ">
       {/* responsive design  */}
       <div className="flex flex-col items-center justify-between  p-4 ">
         <Image src={responsive} alt="ll" />

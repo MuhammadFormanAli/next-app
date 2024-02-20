@@ -1,6 +1,6 @@
 
 import Footer from "./components/footer/Footer";
-import Hero from "./components/hero/page";
+import Hero from "./components/hero/Hero";
 import MainFeatures from "./components/mainFeatures/MainFeatures";
 import PopularStories from "./components/popularStories/PopularStories";
 
@@ -11,7 +11,6 @@ export default function Home() {
       <Hero />
       <PopularStories />
       <MainFeatures />
-      <Footer />
     </>
   );
 }

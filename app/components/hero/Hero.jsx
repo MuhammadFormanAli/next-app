@@ -10,6 +10,7 @@ const Hero = () => {
       {/* hero section one  */}
       <div className="flex flex-col-reverse md:grid grid-cols-12 bg-black h-full text-white  ">
         <div className=" py-16 px-8  col-span-12 md:col-span-7 lg:col-span-5 flex items-center justify-center md:flex-grow lg:flex-grow-0 ">
+          
           <div className="max-w-[380px]">
             <h1 className="text-[32px] md:text-[40px] font-bold tracking-[4.17px] leading-[48px] ">
               Create and share your photo stories.{" "}
@@ -19,11 +20,21 @@ const Hero = () => {
               We make it easy to share photos, tell stories and connect with
               others.
             </p>
-            <button className="text-[12px] font-bold tracking-[3px] ">
-              GET AN INVITE
-            </button>
+
+            <div className="flex gap-6 items-center text-white">
+              <button className="text-[12px] font-bold tracking-[3px] hover:underline ">
+                GET AN INVITE
+              </button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14">
+                <g fill="none" fill-rule="evenodd" stroke="#fff">
+                  <path d="M0 7h41.864M35.428 1l6 6-6 6" />
+                </g>
+              </svg>
+            </div>
           </div>
+
         </div>
+
         <div className="col-span-12 md:col-span-5 lg:col-span-7">
           <Image
             className="w-full h-full object-cover"
@@ -34,7 +45,7 @@ const Hero = () => {
       </div>
 
       {/* hero section two  */}
-      <div className="flex flex-col-reverse md:grid grid-cols-12 bg-white h-full   ">
+      <div className="flex flex-col md:grid grid-cols-12 bg-white h-full   ">
         <div className="col-span-12 md:col-span-5 lg:col-span-7">
           <Image
             className="w-full h-full object-cover"
@@ -48,11 +59,20 @@ const Hero = () => {
               BEAUTIFUL STORIES EVERY TIME.
             </h1>
             <p className="text-[15px] my-4">
-            We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.
+              We provide design templates to ensure your stories look terrific.
+              Easily add photos, text, embed maps and media from other networks.
+              Then share your story with everyone.
             </p>
-            <button className="text-[32px] md:text-[40px] font-bold tracking-[3px] ">
-            VIEW THE STORIES
-            </button>
+            <div className="flex gap-6 items-center ">
+              <button className="text-[12px] font-bold tracking-[3px]  hover:underline  ">
+              VIEW STORIES
+              </button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14">
+                <g fill="none" fill-rule="evenodd" stroke="#000">
+                  <path d="M0 7h41.864M35.428 1l6 6-6 6" />
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -62,14 +82,19 @@ const Hero = () => {
         <div className=" py-16 px-8  col-span-12 md:col-span-7 lg:col-span-5 flex items-center justify-center md:flex-grow lg:flex-grow-0 ">
           <div className="max-w-[380px]">
             <h1 className="text-[32px] md:text-[40px] font-bold tracking-[4.17px] leading-[48px] ">
-            DESIGNED FOR EVERYONE
+              DESIGNED FOR EVERYONE
             </h1>
             <p className="text-[15px] my-4">
-            Photosnap can help you create stories that resonate with your audience.  Our tool is designed for photographers of all levels, brands, businesses you name it. 
+              Photosnap can help you create stories that resonate with your
+              audience. Our tool is designed for photographers of all levels,
+              brands, businesses you name it.
             </p>
-            <button className="text-[12px] font-bold tracking-[3px] ">
-            VIEW THE STORIES
+            <div className='flex gap-6 items-center '>
+            <button className="text-[12px] font-bold tracking-[3px] hover:underline   ">
+              VIEW STORIES
             </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14"><g fill="none" fill-rule="evenodd" stroke="#000"><path d="M0 7h41.864M35.428 1l6 6-6 6"/></g></svg>
+               </div>
           </div>
         </div>
         <div className="col-span-12 md:col-span-5 lg:col-span-7">
