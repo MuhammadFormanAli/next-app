@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,16 +12,21 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
+
   return (
     <html lang="en" className="bg-white">
+      <UserProvider>
       <body className={inter.className }>
         <div className="max-w-[1440px] mx-auto">
         <Navbar />
         {children}
         <Footer />
         </div>
-        
       </body>
+    
+      </UserProvider>
     </html>
   );
 }
