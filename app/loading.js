@@ -1,10 +1,9 @@
 import React from 'react';
+import Loader from './components/loading/Loading';
 
 const Loading = () => {
     return (
-        <div className='w-full h-full flex items-center justify-center'>
-            Loading....
-        </div>
+        <Loader />
     );
 };
 

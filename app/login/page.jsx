@@ -2,9 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import featuredImg from '@/public/assets/stories/desktop/moon-of-appalacia.jpg'
+import PrivateRoute from '../components/privateRoute/PrivateRoute';
 
 const Login = () => {
     return (
+<PrivateRoute>
 <div className='relative py-10  bg-black bg-opacity-25 text-white'>
         <Image className='absolute top-0 left-0 w-full h-full -z-50 object-cover' src={featuredImg} alt="image" />
 
@@ -27,6 +29,7 @@ const Login = () => {
             <p>Do not have an account <Link className='font-bold text-blue-500 hover:underline' href='/register'>Register</Link></p>
         </form>
     </div>
+</PrivateRoute>
     );
 };
 

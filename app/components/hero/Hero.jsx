@@ -4,7 +4,8 @@ import heroImg2 from "@/public/assets/home/desktop/beautiful-stories.jpg";
 import heroImg3 from "@/public/assets/home/desktop/designed-for-everyone.jpg";
 import Image from "next/image";
 
-const Hero = () => {
+const Hero = async () => {
+
   return (
     <div>
       {/* hero section one  */}
@@ -26,7 +27,7 @@ const Hero = () => {
                 GET AN INVITE
               </button>
               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14">
-                <g fill="none" fill-rule="evenodd" stroke="#fff">
+                <g fill="none" fillRule="evenodd" stroke="#fff">
                   <path d="M0 7h41.864M35.428 1l6 6-6 6" />
                 </g>
               </svg>
@@ -68,7 +69,7 @@ const Hero = () => {
               VIEW STORIES
               </button>
               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14">
-                <g fill="none" fill-rule="evenodd" stroke="#000">
+                <g fill="none" fillRule="evenodd" stroke="#000">
                   <path d="M0 7h41.864M35.428 1l6 6-6 6" />
                 </g>
               </svg>
@@ -93,7 +94,7 @@ const Hero = () => {
             <button className="text-[12px] font-bold tracking-[3px] hover:underline   ">
               VIEW STORIES
             </button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14"><g fill="none" fill-rule="evenodd" stroke="#000"><path d="M0 7h41.864M35.428 1l6 6-6 6"/></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14"><g fill="none" fillRule="evenodd" stroke="#000"><path d="M0 7h41.864M35.428 1l6 6-6 6"/></g></svg>
                </div>
           </div>
         </div>
