@@ -16,6 +16,8 @@ const Navbar = () => {
                     <li><Link href="/stories">STORIES</Link></li>
                     <li><Link href="/features">FEATURES</Link></li>
                     <li><Link href="/pricing">PRICING</Link></li>
+                    <li><Link href="/dashboard">DASHBOARD</Link></li>
+                    
                 </ul>
             </div>
                 {/* <button className='bg-black px-6 py-3  tracking-[3px] font-bold text-white'>GET AN INVITE</button> */}

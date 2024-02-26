@@ -13,8 +13,6 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-
-
   return (
     <html lang="en" className="bg-white">
       <UserProvider>
@@ -25,7 +23,6 @@ export default function RootLayout({ children }) {
         <Footer />
         </div>
       </body>
-    
       </UserProvider>
     </html>
   );

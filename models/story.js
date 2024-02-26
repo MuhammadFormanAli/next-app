@@ -1,6 +1,7 @@
 import mongoose, { Schema, models } from "mongoose";
 const storySchema = new Schema ({
 
+   
     storyName: {
         type: String,
         required: true,
@@ -18,6 +19,10 @@ const storySchema = new Schema ({
         type: String,
         required: true,
     },
+    writerEmail: {
+        type: String,
+        required: true,
+    },
     storyImage: {
         type: String,
         required: true,
@@ -25,11 +30,8 @@ const storySchema = new Schema ({
     thumbImage: {
         type: String,
         required: true,
-    },
-    views: {
-        type: Number,
-        default: 0,
-    },
+    }
+   
 
 },{timestamps: true})
 

@@ -8,6 +8,7 @@ import Loader from '../loading/Loading';
 const LoginButton = () => {
 
     const { user, error, isLoading } = useUser();
+    console.log(user)
 
     if (isLoading) return <div className={`bg-black px-6 py-3  tracking-[3px] font-bold text-white hover:underline`}>Loading</div>
     if (error) return <div>{error.message}</div>;
