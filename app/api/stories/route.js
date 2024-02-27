@@ -3,10 +3,6 @@ import Story from "@/models/story";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
-// export async function GET (req){
-//     await connectMongoDB()
-//   return NextResponse.json({message: "life is beautiful"})
-// }
 
 export async function GET(req) {
     try {
@@ -19,8 +15,7 @@ export async function GET(req) {
         const email = searchParams.get('email')
 
         if (popular === 'true') {
-            // Fetch popular stories (e.g., top 4 stories by views)
-            const popularStories = await Story.find().sort({ views: -1 }).limit(4);
+            const popularStories = await Story.find().limit(4);
             return NextResponse.json(popularStories);
         } else if (id) {
             try {
@@ -78,6 +73,7 @@ export async function POST(req) {
 export async function DELETE(req) {
 
     const { id, email } = await req.json()
+    console.log(id, email)
 
     try {
         await connectMongoDB()
@@ -85,29 +81,63 @@ export async function DELETE(req) {
         if (!id || !email) {
             return NextResponse.json({ message: 'Delete Rejected' })
         } else {
-            // Fetch a specific story by ID
+            // Fetch a specific story by id
             const story = await Story.findById(id);
             if (!story) {
-                return NextResponse.json({ message: "Nod Found" })
+                return NextResponse.json({ message: "Not Found" })
             }
 
             if (story.writerEmail === email) {
-                const result = await Story.deleteOne({_id: id});
+                const result = await Story.deleteOne({ _id: id });
                 console.log(result)
                 return NextResponse.json(result)
             }
             else {
                 return NextResponse.json({ message: "Delete Rejected Because Of Invalid Email" })
             }
+        }
+    } catch (error) {
+        return NextResponse.json({ error })
+    }
 
+}
+
+
+export async function PUT(req) {
+
+    const { updatedStory } = await req.json()
+    console.log('updated story', updatedStory)
+
+    try {
+        await connectMongoDB();
+
+        const url = new URL(req.url)
+        const searchParams = new URLSearchParams(url.searchParams)
+        const email = searchParams.get('email')
+        const id = searchParams.get('id')
+
+
+        if (id) {
+            // Fetch stories by email
+            const story = await Story.findById(id);
+
+            if (!story) {
+                return NextResponse.json({ message: "Nod Found" })
+            }
+
+            if (story?.writerEmail === email) {
+                const result = await Story.findByIdAndUpdate(id, { story: updatedStory });
+                console.log('updated story', updatedStory)
+                // console.log(result)
+                return NextResponse.json(result)
+            }
+            else {
+                return NextResponse.json({ message: "Update Not Success" })
+            }
         }
 
-
     } catch (error) {
-
+        console.error('Error fetching stories:', error);
+        return NextResponse.status(500).json({ error: 'Internal server error' });
     }
-    console.log(id, email)
-
-    return NextResponse.json({ message: 'deleted success' })
-
 }

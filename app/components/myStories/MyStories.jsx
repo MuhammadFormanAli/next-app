@@ -1,27 +1,33 @@
+
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import DeleteStoryButton from "./DeleteStoryButton";
+import { useQuery } from "react-query";
+import axios from "axios";
+import Loader from "../loading/Loading";
 
 const MyStories = ({ email }) => {
-  const [stories, setStories] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/api/stories?email=${email}`)
-      .then((res) => res.json())
-      .then((result) => {
-        const stories = result;
-        setStories(stories);
-        console.log(result);
-      });
-  }, [email]);
+  const {data: myStories = [], isLoading:loading, refetch } = useQuery({
+    queryKey: ['myStories'],
+    queryFn: async() => {
+        const res = await axios(`http://localhost:3000/api/stories?email=${email}`)
+        return res.data;
+    }
+})
+
+if (loading) {
+  return <Loader/>
+}
 
   return (
   
       <div>
-        <p className="text-center font-bold text-lg">MY STORIES: {stories?.length}</p>
+        <div className="flex justify-end py-3">
+        <Link className=" px-4 py-3 font-bold tracking-widest bg-black text-white" href='/add-story'>Upload A Story</Link>
+        </div>
         {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 min-h-fit">
-            {stories?.map((story) => (
+            {myStories?.map((story) => (
               <div key={story?._id}>
                      <div className='relative  transition-all duration-[.5s] cursor-pointer '>
             <img className='w-full h-full object-cover ' src={story?.thumbImage} alt="story image" />
@@ -39,8 +45,8 @@ const MyStories = ({ email }) => {
                </div>
              </Link>
              <div className="flex justify-between items-center border p-1 font-bold ">
-                <button className="hover:underline" >Edit Story</button>
-                <DeleteStoryButton id={story?._id} email = {email} />
+                <Link href={`/update-story/${story?._id}`} className="hover:underline" >Edit Story</Link>
+                <DeleteStoryButton id={story?._id} email = {email} refetch={refetch} />
              </div>
 
             </div>

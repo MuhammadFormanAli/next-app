@@ -1,14 +1,23 @@
-
+'use client'
 
 import React from "react";
 import PrivateRoute from "@/app/components/privateRoute/PrivateRoute";
+import axios from "axios";
+import { useQuery } from "react-query";
 
-const ReadStory = async ({ params }) => {
-  const res = await fetch(
-    `http://localhost:3000/api/stories?id=${params?.id}`
-  );
-  const story = await res.json();
+const ReadStory =  ({ params }) => {
+  // const res = await axios(`http://localhost:3000/api/stories?id=${params?.id}`);
+  // const story = await res.data;
   // console.log(story);
+
+  const {data: story = [] } = useQuery({
+    queryKey: ['story'],
+    queryFn: async() => {
+        const res = await axios(`http://localhost:3000/api/stories?id=${params?.id}`)
+        return res.data;
+    }
+})
+
 
   return (
     <PrivateRoute>
@@ -50,6 +59,7 @@ const ReadStory = async ({ params }) => {
         </div>
       </div>
     </PrivateRoute>
+
   );
 };
 

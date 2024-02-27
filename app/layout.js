@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { UserProvider } from '@auth0/nextjs-auth0/client';
+import Provider from "@/provider/Provider";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,15 +18,18 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className="bg-white">
-      <UserProvider>
-      <body className={inter.className }>
-        <div className="max-w-[1440px] mx-auto">
-        <Navbar />
-        {children}
-        <Footer />
-        </div>
-      </body>
-      </UserProvider>
+      <Provider>
+        <UserProvider>
+          <body className={inter.className}>
+            <div className="max-w-[1440px] mx-auto">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+            <ToastContainer></ToastContainer>
+          </body>
+        </UserProvider>
+      </Provider>
     </html>
   );
 }

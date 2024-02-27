@@ -39,6 +39,7 @@ const FeaturedStory = () => {
 
       </div>
     </div>
+
   );
 };
 

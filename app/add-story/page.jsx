@@ -6,9 +6,12 @@ import Image from "next/image";
 import PrivateRoute from "../components/privateRoute/PrivateRoute";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Loader from "../components/loading/Loading";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const UploadStory = () => {
   const { user, isLoading } = useUser();
+  const router = useRouter()
 
   if (isLoading) {
     return <Loader />;
@@ -67,7 +70,7 @@ const UploadStory = () => {
                   storyImage,
                   thumbImage,
                 };
-                fetch("http://localhost:3000/api/stories", {
+                fetch(`http://localhost:3000/api/stories`, {
                   method: "POST",
                   headers: {
                     "content-type": "application/json",
@@ -76,9 +79,11 @@ const UploadStory = () => {
                 })
                   .then((res) => res.json())
                   .then((result) => {
-                    console.log("Result from backend", result);
+                    // console.log("Result from backend", result);
                     if (result._id) {
-                      alert("story update success");
+                      toast.success("Story Upload successful");
+                      router.push('/dashboard')
+
                     }
                   });
               }
